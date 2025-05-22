@@ -28,7 +28,7 @@
         // Buscar produtos no servidor
         async function buscarProdutos() {
             const termo = document.getElementById("termo").value;
-            const resposta = await fetch(`http://localhost:3000/api/produtos?termo=${encodeURIComponent(termo)}`);
+            const resposta = await fetch(`http://winexus.ddns.net:3000/api/produtos?termo=${encodeURIComponent(termo)}`);
             const produtos = await resposta.json();
 
             const lista = document.getElementById("lista-produtos");
