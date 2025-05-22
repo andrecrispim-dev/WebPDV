@@ -28,5 +28,5 @@ app.get("/", (req, res) => {
 
 // Inicia o servidor
 app.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost:${port}`);
+    console.log(`Servidor rodando em http://winexus.ddns.net:${port}`);
 });
