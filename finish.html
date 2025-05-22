@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WebPDV - Finalizar Pedido</title>
+</head>
+
+<body>
+    <h2>Finalizar Pedido</h2>
+
+    <h3>Buscar Cliente</h3>
+    <input type="text" id="cliente-termo" placeholder="Digite o nome do cliente" />
+    <button onclick="buscarClientes()">Buscar</button>
+    <ul id="lista-clientes"></ul>
+
+    <div id="dados-cliente" style="display: none;">
+        <h4>Cliente Selecionado:</h4>
+        <p id="cliente-info"></p>
+    </div>
+
+    <hr>
+    <h3>Resumo do Carrinho</h3>
+    <ul id="resumo-carrinho"></ul>
+    <p id="total">Total: R$ 0,00</p>
+
+    <button onclick="concluirPedido()">Concluir Pedido</button>
+
+    <script>
+        let carrinho = JSON.parse(localStorage.getItem("carrinho") || "[]");
+        let clienteSelecionado = null;
+
+        function atualizarResumo() {
+            console.log("Função atualizarResumo executada!");
+
+            const lista = document.getElementById("resumo-carrinho");
+            const totalEl = document.getElementById("total");
+            lista.innerHTML = "";
+            let total = 0;
+
+            carrinho.forEach((item, index) => {
+                const subtotal = item.quantidade * item.CUSTO_BRUTO;
+                total += subtotal;
+
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    ${item.DESCRICAO} - ${item.quantidade} x R$ ${item.CUSTO_BRUTO.toFixed(2)} = R$ ${subtotal.toFixed(2)}
+                    <button onclick="alterar(${index}, 1)">+</button>
+                    <button onclick="alterar(${index}, -1)">-</button>
+                    <button onclick="remover(${index})">Remover</button>
+                `;
+                lista.appendChild(li);
+            });
+
+            totalEl.textContent = `Total: R$ ${total.toFixed(2)}`;
+        }
+
+        function alterar(index, delta) {
+            carrinho[index].quantidade += delta;
+            if (carrinho[index].quantidade <= 0) carrinho.splice(index, 1);
+            localStorage.setItem("carrinho", JSON.stringify(carrinho));
+            atualizarResumo();
+        }
+
+        function remover(index) {
+            carrinho.splice(index, 1);
+            localStorage.setItem("carrinho", JSON.stringify(carrinho));
+            atualizarResumo();
+        }
+
+        async function buscarClientes() {
+            const termo = document.getElementById("cliente-termo").value;
+            const resposta = await fetch(`http://localhost:3000/api/clientes?nome=${encodeURIComponent(termo)}`);
+            const clientes = await resposta.json();
+
+            const lista = document.getElementById("lista-clientes");
+            lista.innerHTML = "";
+
+            clientes.forEach(cli => {
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    ${cli.NOME} - ${cli.LOGRADOURO}<br>
+                    <button onclick='selecionarCliente(${JSON.stringify(cli)})'>Selecionar</button>
+                `;
+                lista.appendChild(li);
+            });
+        }
+
+        function selecionarCliente(cli) {
+            clienteSelecionado = cli;
+            document.getElementById("cliente-info").textContent =
+                `${cli.NOME} | ${cli.LOGRADOURO} | ${cli.CIDADE}`;
+            document.getElementById("dados-cliente").style.display = "block";
+        }
+
+        async function concluirPedido() {
+            if (!clienteSelecionado) {
+                alert("Selecione um cliente.");
+                return;
+            }
+
+            const vendedorId = localStorage.getItem("vendedor_id");
+
+            const resposta = await fetch("http://localhost:3000/api/pedidos", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    vendedorId: parseInt(vendedorId),
+                    clienteId: clienteSelecionado.CLIENTE_ID,
+                    produtos: carrinho
+                })
+            });
+
+            const dados = await resposta.json();
+
+            if (dados.sucesso) {
+                alert("Pedido concluído com sucesso! ID: " + dados.pedidoId);
+                localStorage.removeItem("carrinho");
+                window.location.href = "main.html";
+            } else {
+                alert("Erro ao concluir o pedido.");
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", atualizarResumo);
+    </script>
+</body>
+
+</html>

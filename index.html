@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>WebPDV - Login</title>
+</head>
+<body>
+    <h2>Login do Vendedor</h2>
+
+    <input type="text" id="usuario" placeholder="Nome do vendedor" /><br><br>
+    <input type="password" id="senha" placeholder="Senha" /><br><br>
+    <button onclick="logar()">Entrar</button>
+
+    <p id="erro" style="color:red;"></p>
+
+    <script>
+        async function logar() {
+            const nome = document.getElementById("usuario").value;
+            const senha = document.getElementById("senha").value;
+
+            const resposta = await fetch("http://localhost:3000/api/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ nome, senha })
+            });
+
+            const dados = await resposta.json();
+
+            if (dados.sucesso) {
+                // Armazenar dados do vendedor, se quiser
+                localStorage.setItem("vendedor_id", dados.vendedor.ID);
+                localStorage.setItem("vendedor_nome", dados.vendedor.NOME);
+
+                window.location.href = "main.html"; // Redireciona para a tela principal
+            } else {
+                document.getElementById("erro").textContent = dados.mensagem;
+            }
+        }
+    </script>
+</body>
+</html>

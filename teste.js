@@ -1,0 +1,222 @@
+[
+    {
+      "ESTOQUE_ID": 1105,
+      "DESCRICAO": "NUTRILON ARROZ 12X400GRS",
+      "CUSTO_BRUTO": 38.4
+    },
+    {
+      "ESTOQUE_ID": 199500,
+      "DESCRICAO": "NUTRILON ARROZ 12X 300GRS SACHET",
+      "CUSTO_BRUTO": 25.8
+    },
+    {
+      "ESTOQUE_ID": 204707,
+      "DESCRICAO": "ARROZ TIO JOAO  PARB. LF TP1   30 X 1",
+      "CUSTO_BRUTO": 40
+    },
+    {
+      "ESTOQUE_ID": 205093,
+      "DESCRICAO": "ARROZ FAZENDA PARB. TP 1   30 X 1",
+      "CUSTO_BRUTO": 45.2
+    },
+    {
+      "ESTOQUE_ID": 207503,
+      "DESCRICAO": "ARROZ UMAI GRAO. LG PCT 1 KG  NIMP",
+      "CUSTO_BRUTO": 8.609
+    },
+    {
+      "ESTOQUE_ID": 207544,
+      "DESCRICAO": "ARROZ UMAI GRAO. CURTO PCT 5 KG  NAC",
+      "CUSTO_BRUTO": 57.5
+    },
+    {
+      "ESTOQUE_ID": 4,
+      "DESCRICAO": "ARROZ EMOCOES PARB. LG TP2  30X1 KG",
+      "CUSTO_BRUTO": 54.5
+    },
+    {
+      "ESTOQUE_ID": 39,
+      "DESCRICAO": "ARROZINA 25X200 GRS",
+      "CUSTO_BRUTO": 1.98
+    },
+    {
+      "ESTOQUE_ID": 69,
+      "DESCRICAO": "ARROZ PARB. RAMPINELLI BENEF.LG.FN. TP1 30X1 KG",
+      "CUSTO_BRUTO": 168
+    },
+    {
+      "ESTOQUE_ID": 144,
+      "DESCRICAO": "ARROZ CAMIL PARB. LG FN TP 1 30X1 KG",
+      "CUSTO_BRUTO": 2.285
+    },
+    {
+      "ESTOQUE_ID": 263,
+      "DESCRICAO": "MUCILON ARROZ SACHET 12X230GRS",
+      "CUSTO_BRUTO": 56.4
+    },
+    {
+      "ESTOQUE_ID": 970,
+      "DESCRICAO": "ARROZ BRANCO TIO JOAO POLI LF TP1 10X1 KG",
+      "CUSTO_BRUTO": 57.33
+    },
+    {
+      "ESTOQUE_ID": 171300,
+      "DESCRICAO": "MUCILON ARROZ SACHET 12X180 GRS",
+      "CUSTO_BRUTO": 62.5
+    },
+    {
+      "ESTOQUE_ID": 204572,
+      "DESCRICAO": "FLOCAO DE ARROZ NUTRIVITA 20X500GRS",
+      "CUSTO_BRUTO": 47
+    },
+    {
+      "ESTOQUE_ID": 204689,
+      "DESCRICAO": "MUCILON \"LATA\" AVEIA/ARROZ 06 X 400GR",
+      "CUSTO_BRUTO": 37.44
+    },
+    {
+      "ESTOQUE_ID": 204814,
+      "DESCRICAO": "ARROZ BIJU PARB. 10 X 1 KG",
+      "CUSTO_BRUTO": 39.9
+    },
+    {
+      "ESTOQUE_ID": 204893,
+      "DESCRICAO": "FLOCAO DE ARROZ VITAMILHO  20X500GRS",
+      "CUSTO_BRUTO": 31.7
+    },
+    {
+      "ESTOQUE_ID": 204935,
+      "DESCRICAO": "MUCILON AVEIA/ARROZ SACHET 12X230GRS",
+      "CUSTO_BRUTO": 56.4
+    },
+    {
+      "ESTOQUE_ID": 205014,
+      "DESCRICAO": "ARROZ PRIMOR PARB. TP1   30X1 KG",
+      "CUSTO_BRUTO": 60.5
+    },
+    {
+      "ESTOQUE_ID": 206019,
+      "DESCRICAO": "ARROZ MARIANO BENEF PARB. TP 1 10 X 1",
+      "CUSTO_BRUTO": 39.5
+    },
+    {
+      "ESTOQUE_ID": 206323,
+      "DESCRICAO": "ARROZ CAMIL BENEF/POLI  LF TP1 10X1 KG",
+      "CUSTO_BRUTO": 58.31
+    },
+    {
+      "ESTOQUE_ID": 206588,
+      "DESCRICAO": "MUCILON ARROZ SACHET 12X230GRS",
+      "CUSTO_BRUTO": 33
+    },
+    {
+      "ESTOQUE_ID": 206885,
+      "DESCRICAO": "ARROZ MARIANO BENEF/PARB LG FN TP1 30X1 KG",
+      "CUSTO_BRUTO": 62
+    },
+    {
+      "ESTOQUE_ID": 207009,
+      "DESCRICAO": "ARROZ INTEGRAL TIO JOAO LF-TP1 10X1 KG",
+      "CUSTO_BRUTO": 55.41
+    },
+    {
+      "ESTOQUE_ID": 207646,
+      "DESCRICAO": "ARROZ PARB. RAMPINELLI BENEF.LG.FN. TP1 10X1 KG",
+      "CUSTO_BRUTO": 39.33
+    },
+    {
+      "ESTOQUE_ID": 207649,
+      "DESCRICAO": "FLOCAO DE ARROZ CORINGA  10 X 500GRS",
+      "CUSTO_BRUTO": 30.723
+    },
+    {
+      "ESTOQUE_ID": 207716,
+      "DESCRICAO": "ARROZ BENEF.PARB.LG.FN. TP1 KIARROZ FUMACENSE 30X1 KG",
+      "CUSTO_BRUTO": 55
+    },
+    {
+      "ESTOQUE_ID": 207866,
+      "DESCRICAO": "ARROZ POLI. JAPONES  TP1  06X5 KG",
+      "CUSTO_BRUTO": 138.42
+    },
+    {
+      "ESTOQUE_ID": 208069,
+      "DESCRICAO": "ARROZ PARB. EMOCOES LF T2 10X1 KG",
+      "CUSTO_BRUTO": 43
+    },
+    {
+      "ESTOQUE_ID": 208443,
+      "DESCRICAO": "ARROZ PARB. CAMIL LG FN TP 1 10X1 KG",
+      "CUSTO_BRUTO": 55.34
+    },
+    {
+      "ESTOQUE_ID": 208540,
+      "DESCRICAO": "ARROZ POLID. RAMPINELLI BENEF.LG.FN. TP1 10X1 KG",
+      "CUSTO_BRUTO": 23.17
+    },
+    {
+      "ESTOQUE_ID": 208836,
+      "DESCRICAO": "ARROZ CAMPEIRO BENEF.PARB. LG/F TP1  10X1 KG",
+      "CUSTO_BRUTO": 20
+    },
+    {
+      "ESTOQUE_ID": 209188,
+      "DESCRICAO": "ARROZ  POP  PARB. LF TP2 10X1 KG",
+      "CUSTO_BRUTO": 26.52
+    },
+    {
+      "ESTOQUE_ID": 209207,
+      "DESCRICAO": "ARROZINA 25X180 GRS",
+      "CUSTO_BRUTO": 90
+    },
+    {
+      "ESTOQUE_ID": 209421,
+      "DESCRICAO": "ARROZ INTEGRAL EMOCOES 10X1 KG",
+      "CUSTO_BRUTO": 64.41
+    },
+    {
+      "ESTOQUE_ID": 209422,
+      "DESCRICAO": "ARROZ PARB. PANELACO LG  TP 1 10X1 KG",
+      "CUSTO_BRUTO": 36
+    },
+    {
+      "ESTOQUE_ID": 209477,
+      "DESCRICAO": "ARROZ PARB. CACAROLA BENEF. TP1 30X1 KG",
+      "CUSTO_BRUTO": 115
+    },
+    {
+      "ESTOQUE_ID": 209647,
+      "DESCRICAO": "ARROZ BRANCO EMOCOES LF TP1 10X1 KG",
+      "CUSTO_BRUTO": 58.96
+    },
+    {
+      "ESTOQUE_ID": 209805,
+      "DESCRICAO": "ARROZ PARB. PRINCESA LF TP1 10X1 KG",
+      "CUSTO_BRUTO": 0
+    },
+    {
+      "ESTOQUE_ID": 209909,
+      "DESCRICAO": "MUCILON AVEIA/ARROZ SACHET 12X180GRS",
+      "CUSTO_BRUTO": 57.12
+    },
+    {
+      "ESTOQUE_ID": 210524,
+      "DESCRICAO": "ARROZ NAMORADO BENEF. POL LF/T1 10X1",
+      "CUSTO_BRUTO": 0
+    },
+    {
+      "ESTOQUE_ID": 210525,
+      "DESCRICAO": "ARROZ BRANCO SAMAN LOG/F T-1  10X1",
+      "CUSTO_BRUTO": 0
+    },
+    {
+      "ESTOQUE_ID": 210526,
+      "DESCRICAO": "ARROZ CAMIL PARB/INTEG. LOG/F T-1 10 X 1 KG",
+      "CUSTO_BRUTO": null
+    },
+    {
+      "ESTOQUE_ID": 210565,
+      "DESCRICAO": "ARROZ NAMORADO BENEF/PARB  LF/T1 10X1",
+      "CUSTO_BRUTO": 48.77
+    }
+  ]

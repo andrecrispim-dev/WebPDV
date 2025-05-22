@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WebPDV - Novo Pedido</title>
+</head>
+
+<body>
+    <h2>Bem-vindo, <span id="vendedor-nome"></span></h2>
+
+    <input type="text" id="termo" placeholder="Buscar produto..." />
+    <button onclick="buscarProdutos()">Buscar</button>
+
+    <ul id="lista-produtos"></ul>
+    <hr>
+    <h3>Carrinho de Compras</h3>
+    <ul id="carrinho-lista"></ul>
+    <p id="total">Total: R$ 0,00</p>
+    <button onclick="finalizarPedido()">Finalizar Pedido</button>
+
+
+    <script>
+        // Mostrar o nome do vendedor no topo
+        document.getElementById("vendedor-nome").textContent =
+            localStorage.getItem("vendedor_nome") || "Visitante";
+
+        // Buscar produtos no servidor
+        async function buscarProdutos() {
+            const termo = document.getElementById("termo").value;
+            const resposta = await fetch(`http://localhost:3000/api/produtos?termo=${encodeURIComponent(termo)}`);
+            const produtos = await resposta.json();
+
+            const lista = document.getElementById("lista-produtos");
+            lista.innerHTML = ""; // limpa a lista anterior
+
+            if (produtos.length === 0) {
+                lista.innerHTML = "<li>Nenhum produto encontrado.</li>";
+                return;
+            }
+
+            produtos.forEach(prod => {
+                const li = document.createElement("li");
+                const descricaoSegura = prod.DESCRICAO.replace(/'/g, "\\'");
+                li.innerHTML = `
+                    <strong>${prod.DESCRICAO}</strong><br>
+                    Preço: R$ ${prod.CUSTO_BRUTO}<br>
+                    <button onclick="adicionar(${prod.ESTOQUE_ID}, '${descricaoSegura}', ${prod.CUSTO_BRUTO})">Adicionar</button>
+                    <hr>
+                `;
+                lista.appendChild(li);
+            });
+        }
+
+        // Simula a ação de adicionar ao carrinho (vamos melhorar depois)
+        function adicionar(ESTOQUE_ID, DESCRICAO, CUSTO_BRUTO) {
+            alert(`Produto "${DESCRICAO}" adicionado ao carrinho (simulado).`);
+        }
+
+        let carrinho = [];
+
+        // Adiciona produto ao carrinho
+        function adicionar(ESTOQUE_ID, DESCRICAO, CUSTO_BRUTO) {
+            const existente = carrinho.find(p => p.ESTOQUE_ID === ESTOQUE_ID);
+            if (existente) {
+                existente.quantidade++;
+            } else {
+                carrinho.push({ ESTOQUE_ID, DESCRICAO, CUSTO_BRUTO, quantidade: 1 });
+            }
+            atualizarCarrinho();
+        }
+
+        // Atualiza a exibição do carrinho
+        function atualizarCarrinho() {
+            const lista = document.getElementById("carrinho-lista");
+            const totalElemento = document.getElementById("total");
+            lista.innerHTML = "";
+            let total = 0;
+
+            carrinho.forEach((item, index) => {
+                const li = document.createElement("li");
+                const subtotal = item.quantidade * item.CUSTO_BRUTO;
+                total += subtotal;
+
+                li.innerHTML = `
+            ${item.DESCRICAO} - ${item.quantidade} x R$ ${item.CUSTO_BRUTO.toFixed(2)} = R$ ${subtotal.toFixed(2)}
+            <button onclick="alterarQuantidade(${index}, 1)">+</button>
+            <button onclick="alterarQuantidade(${index}, -1)">-</button>
+            <button onclick="remover(${index})">Remover</button>
+        `;
+                lista.appendChild(li);
+            });
+
+            totalElemento.textContent = `Total: R$ ${total.toFixed(2)}`;
+        }
+
+        // Altera a quantidade
+        function alterarQuantidade(index, delta) {
+            carrinho[index].quantidade += delta;
+            if (carrinho[index].quantidade <= 0) {
+                carrinho.splice(index, 1);
+            }
+            atualizarCarrinho();
+        }
+
+        // Remove item do carrinho
+        function remover(index) {
+            carrinho.splice(index, 1);
+            atualizarCarrinho();
+        }
+
+        // Finaliza o pedido (vai para a próxima página)
+        function finalizarPedido() {
+            if (carrinho.length === 0) {
+                alert("Carrinho vazio!");
+                return;
+            }
+
+            // Salva no localStorage para usar no finish.html
+            localStorage.setItem("carrinho", JSON.stringify(carrinho));
+            window.location.href = "finish.html";
+        }
+
+    </script>
+</body>
+
+</html>
