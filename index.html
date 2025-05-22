@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <title>WebPDV - Login</title>
 </head>
+
 <body>
-    <h2>Login do Vendedor</h2>
-
-    <input type="text" id="usuario" placeholder="Nome do vendedor" /><br><br>
-    <input type="password" id="senha" placeholder="Senha" /><br><br>
-    <button onclick="logar()">Entrar</button>
-
-    <p id="erro" style="color:red;"></p>
+    <div>
+        <h2>Login do Vendedor</h2>
+        <input type="text" id="usuario" placeholder="Nome do vendedor" /><br><br>
+        <input type="password" id="senha" placeholder="Senha" /><br><br>
+        <button onclick="logar()">Entrar</button>
+        <p id="erro" style="color:red;"></p>
+    </div>
 
     <script>
         async function logar() {
@@ -40,4 +42,5 @@
         }
     </script>
 </body>
+
 </html>
